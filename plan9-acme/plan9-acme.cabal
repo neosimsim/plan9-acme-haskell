@@ -1,0 +1,24 @@
+cabal-version:      >=1.10
+name:               plan9-acme
+version:            0.1.0.0
+synopsis:           Simple interface for interacting with acme windows.
+description:
+  Simple interface for interacting with acme windows inspired by 9fans.net/go/acme.
+
+license:            BSD3
+license-file:       LICENSE
+author:             Alexander Ben Nasrallah
+maintainer:         me@abn.sh
+copyright:          2020 © Alexander Ben Nasrallah <me@abn.sh>
+category:           Plan9
+build-type:         Simple
+extra-source-files: CHANGELOG.md
+
+library
+  exposed-modules:  System.Plan9.Acme
+
+  -- other-modules:
+  -- other-extensions:
+  build-depends:    base >=4.9 && <5
+  hs-source-dirs:   src
+  default-language: Haskell2010
