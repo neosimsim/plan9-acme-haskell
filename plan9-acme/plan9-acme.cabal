@@ -14,6 +14,11 @@ category:           Plan9
 build-type:         Simple
 extra-source-files: CHANGELOG.md
 
+flag pedantic
+  description: Build with -Wall -Werror
+  manual:      True
+  default:     False
+
 library
   exposed-modules:  System.Plan9.Acme
 
@@ -22,3 +27,6 @@ library
   build-depends:    base >=4.9 && <5
   hs-source-dirs:   src
   default-language: Haskell2010
+
+  if flag(pedantic)
+    ghc-options: -Wall -Werror

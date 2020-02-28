@@ -1,5 +1,8 @@
 module System.Plan9.Acme
-  ( someFunc
+  ( new
   ) where
 
-someFunc = undefined
+type Win = Integer
+
+new :: IO Win
+new = return 0

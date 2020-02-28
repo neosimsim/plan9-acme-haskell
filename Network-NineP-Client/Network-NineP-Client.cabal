@@ -14,11 +14,38 @@ category:           Network
 build-type:         Simple
 extra-source-files: CHANGELOG.md
 
+flag pedantic
+  description: Build with -Wall -Werror
+  manual:      True
+  default:     False
+
 library
-  exposed-modules:  MyLib
+  exposed-modules:  Network.NineP.Client
 
   -- other-modules:
   -- other-extensions:
-  build-depends:    base ==4.9.*
+  build-depends:
+      base        >=4.9 && <5
+    , regex-tdfa
+
   hs-source-dirs:   src
+  default-language: Haskell2010
+
+  if flag(pedantic)
+    ghc-options: -Wall -Werror
+
+test-suite test-Network-NineP-Client
+  type:             exitcode-stdio-1.0
+  main-is:          Spec.hs
+  hs-source-dirs:   test
+  ghc-options:      -threaded -rtsopts -with-rtsopts=-N
+
+  if flag(pedantic)
+    ghc-options: -Wall -Werror
+
+  build-depends:
+      base                  >=4.7 && <5
+    , hspec
+    , Network-NineP-Client
+
   default-language: Haskell2010

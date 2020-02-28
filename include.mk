@@ -5,9 +5,9 @@ all:
 build:
 	cabal v2-build -f pedantic $(CABAL_ARGS) $(PACKAGE)
 
-test: $(TESTS-SUITES)
+test: $(TEST_SUITES)
 
-$(TESTS-SUITES):
+$(TEST_SUITES):
 	cabal v2-run -f pedantic $(CABAL_ARGS) $(PACKAGE):$@ -- $(TEST_ARGS)
 
 check:
